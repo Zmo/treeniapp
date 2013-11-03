@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :muscles %><br>
-    <%= f.text_field :muscles %>
+    <%= f.select :muscles, options_for_select(@muscles) %>
   </div>
   <div class="field">
     <%= f.label :person_id %><br>

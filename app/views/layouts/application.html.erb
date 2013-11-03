@@ -7,6 +7,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="navi">
+    <%= link_to 'people', people_path %>
+    <%= link_to 'workouts', workouts_path %>
+    <%= link_to 'goals', goals_path %>
+  </div>
 
 <%= yield %>
 

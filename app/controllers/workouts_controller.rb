@@ -1,4 +1,5 @@
 class WorkoutsController < ApplicationController
+  before_filter :authenticate, :only => [:new, :create, :destroy]
   before_action :set_workout, only: [:show, :edit, :update, :destroy]
 
   # GET /workouts
@@ -15,6 +16,7 @@ class WorkoutsController < ApplicationController
   # GET /workouts/new
   def new
     @workout = Workout.new
+    @muscles = ["Biceps", "Triceps", "Shoulders", "Legs"]
   end
 
   # GET /workouts/1/edit
@@ -70,5 +72,12 @@ class WorkoutsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def workout_params
       params.require(:workout).permit(:title, :muscles, :person_id)
+    end
+
+    def authenticate
+      accounts = { "Simo" => "asd" }
+      authenticate_or_request_with_http_basic do |username, password|
+        accounts.has_key?(username) and accounts.fetch(username) == password
+      end
     end
 end
