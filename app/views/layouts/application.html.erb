@@ -8,9 +8,16 @@
 </head>
 <body>
   <div class="navi">
-    <%= link_to 'people', people_path %>
+    <%= link_to 'users', users_path %>
     <%= link_to 'workouts', workouts_path %>
-    <%= link_to 'goals', goals_path %>
+    <%= link_to 'goals', goals_path %> |
+    <% if not session[:user_id].nil? %>
+      <%= link_to current_user.username, user_path(current_user.id) %>
+      <%= link_to 'signout', signout_path, method: :delete %>
+    <% else %>
+      <%= link_to 'signin', signin_path %>
+      <%= link_to 'signup', new_user_path %>
+    <% end %>
   </div>
 
 <%= yield %>
