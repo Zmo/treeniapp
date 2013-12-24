@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by_username params[:username]
+    user = User.find_by_name params[:username]
     if user.nil? or not user.authenticate params[:password]
       redirect_to :back, :notice => "Username and password do not match"
     else

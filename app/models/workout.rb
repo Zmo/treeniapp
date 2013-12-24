@@ -1,3 +1,5 @@
 class Workout < ActiveRecord::Base
-  belongs_to :user
+
+  has_many :workoutmoves, :dependent => :destroy
+  has_many :moves, :through => :workoutmoves
 end

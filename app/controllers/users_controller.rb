@@ -54,10 +54,16 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    @user.destroy
-    respond_to do |format|
-      format.html { redirect_to users_url }
-      format.json { head :no_content }
+    if currently_signed_in? @user
+      session.destroy
+      @user.goals.each{ |r| r.delete }
+      @user.results.each{ |r| r.delete }
+      @user.destroy
+
+      respond_to do |format|
+        format.html { redirect_to users_url }
+        format.json { head :no_content }
+      end
     end
   end
 
@@ -69,6 +75,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :weight)
+      params.require(:user).permit(:name, :password, :password_confirmation, :weight, :height)
     end
 end

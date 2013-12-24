@@ -10,9 +10,11 @@
   <div class="navi">
     <%= link_to 'users', users_path %>
     <%= link_to 'workouts', workouts_path %>
-    <%= link_to 'goals', goals_path %> |
+    <%= link_to 'moves', moves_path %> | 
     <% if not session[:user_id].nil? %>
-      <%= link_to current_user.username, user_path(current_user.id) %>
+      <%= link_to 'my workouts', user_workouts_path %>
+      <%= link_to 'my goals', goals_path %>
+      <%= link_to current_user.name, user_path(current_user.id) %>
       <%= link_to 'signout', signout_path, method: :delete %>
     <% else %>
       <%= link_to 'signin', signin_path %>

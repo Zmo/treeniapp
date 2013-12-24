@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131122201111) do
+ActiveRecord::Schema.define(version: 20131203050431) do
 
   create_table "goals", force: true do |t|
     t.string   "name"
@@ -22,19 +22,74 @@ ActiveRecord::Schema.define(version: 20131122201111) do
     t.datetime "updated_at"
   end
 
+  create_table "move_muscles", force: true do |t|
+    t.integer  "muscle_id"
+    t.integer  "move_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "moves", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "muscles", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "musclegroup_id"
+    t.string   "musclegroup"
+  end
+
+  create_table "results", force: true do |t|
+    t.integer  "move_id"
+    t.integer  "user_id"
+    t.integer  "amount"
+    t.string   "unit"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_workout_moves", force: true do |t|
+    t.integer  "userworkout_id"
+    t.integer  "move_id"
+    t.integer  "repetitions"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_workouts", force: true do |t|
+    t.string   "title"
+    t.string   "type"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: true do |t|
     t.string   "name"
     t.integer  "weight"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "height"
+    t.string   "password_digest"
+  end
+
+  create_table "workout_moves", force: true do |t|
+    t.integer  "workout_id"
+    t.integer  "move_id"
+    t.integer  "repetitions"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "workouts", force: true do |t|
     t.string   "title"
-    t.string   "muscles"
-    t.integer  "person_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "type"
   end
 
 end

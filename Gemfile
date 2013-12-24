@@ -37,6 +37,8 @@ gem 'rb-readline', '~> 0.4.2'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+gem 'bcrypt-ruby', '~> 3.0.0'
+
 
 
 group :doc do

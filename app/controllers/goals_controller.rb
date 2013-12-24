@@ -25,9 +25,11 @@ class GoalsController < ApplicationController
   # POST /goals.json
   def create
     @goal = Goal.new(goal_params)
+    @goal.user_id = current_user.id
 
     respond_to do |format|
       if @goal.save
+        current_user.goals << @goal
         format.html { redirect_to @goal, notice: 'Goal was successfully created.' }
         format.json { render action: 'show', status: :created, location: @goal }
       else

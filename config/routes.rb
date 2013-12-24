@@ -1,4 +1,22 @@
 Treeniapp::Application.routes.draw do
+  resources :user_workout_moves
+
+  resources :user_workouts
+
+  resources :move_muscles
+
+  resources :workout_moves
+
+  resources :workout_muscles
+
+  resources :muscle_groups
+
+  resources :results
+
+  resources :muscles
+
+  resources :moves
+
   resources :goals
 
   resources :workouts
@@ -10,7 +28,7 @@ Treeniapp::Application.routes.draw do
   get 'signup', to: 'users#new'
 
   get 'signin', to: 'sessions#new'
-  delete 'signout,' to: 'sessions#destroy'
+  delete 'signout', to: 'sessions#destroy'
 
   resources :sessions, :only => [:new, :create, :destroy]
 

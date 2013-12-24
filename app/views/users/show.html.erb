@@ -2,13 +2,18 @@
 
 <p>
   <strong>Name:</strong>
-  <%= @person.name %>
+  <%= @user.name %>
 </p>
 
 <p>
   <strong>Weight:</strong>
-  <%= @person.weight %>
+  <%= @user.weight %>
 </p>
 
-<%= link_to 'Edit', edit_person_path(@person) %> |
-<%= link_to 'Back', people_path %>
+<p>
+  <strong>Height:</strong>
+  <%= @user.height %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
