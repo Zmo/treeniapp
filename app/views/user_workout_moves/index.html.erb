@@ -1,0 +1,31 @@
+<h1>Listing user_workout_moves</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Userworkout</th>
+      <th>Move</th>
+      <th>Repetitions</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_workout_moves.each do |user_workout_move| %>
+      <tr>
+        <td><%= user_workout_move.userworkout_id %></td>
+        <td><%= user_workout_move.move_id %></td>
+        <td><%= user_workout_move.repetitions %></td>
+        <td><%= link_to 'Show', user_workout_move %></td>
+        <td><%= link_to 'Edit', edit_user_workout_move_path(user_workout_move) %></td>
+        <td><%= link_to 'Destroy', user_workout_move, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User workout move', new_user_workout_move_path %>

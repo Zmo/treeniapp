@@ -1,0 +1,27 @@
+<h1>Your workouts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Type</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_workouts.each do |user_workout| %>
+      <tr>
+        <td><%= link_to 'user_workout.title', user_workout %></td>
+        <td><%= user_workout.type %></td>
+        <td><%= link_to 'Edit', edit_user_workout_path(user_workout) %></td>
+        <td><%= link_to 'Destroy', user_workout, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New workout', new_user_workout_path %>

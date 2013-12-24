@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Userworkout:</strong>
+  <%= @user_workout_move.userworkout_id %>
+</p>
+
+<p>
+  <strong>Move:</strong>
+  <%= @user_workout_move.move_id %>
+</p>
+
+<p>
+  <strong>Repetitions:</strong>
+  <%= @user_workout_move.repetitions %>
+</p>
+
+<%= link_to 'Edit', edit_user_workout_move_path(@user_workout_move) %> |
+<%= link_to 'Back', user_workout_moves_path %>

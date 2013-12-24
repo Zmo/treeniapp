@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Workout:</strong>
+  <%= @result.workout_id %>
+</p>
+
+<p>
+  <strong>Move:</strong>
+  <%= @result.move_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @result.user_id %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @result.amount %>
+</p>
+
+<p>
+  <strong>Unit:</strong>
+  <%= @result.unit %>
+</p>
+
+<%= link_to 'Edit', edit_result_path(@result) %> |
+<%= link_to 'Back', results_path %>

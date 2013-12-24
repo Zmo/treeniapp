@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  muscle_id: 1
+  move_id: 1
+
+two:
+  muscle_id: 1
+  move_id: 1
