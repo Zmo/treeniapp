@@ -39,6 +39,17 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'bcrypt-ruby', '~> 3.0.0'
 
+group :test do
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'simplecov', :require => false
+end
+
+group :development, :test do
+  gem 'sqlite3'
+  gem 'rspec-rails', '~> 2.0'
+end
 
 
 group :doc do

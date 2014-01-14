@@ -1,24 +1,7 @@
-<h1>Listing people</h1>
+<h1>Users</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Weight</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= link_to user.name, user %></td>
-        <td><%= user.weight %> kg</td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+<ul>
+  <% @users.each do |user| %>
+    <li><%= link_to user.name, user %></li>
+  <% end %>
+</ul>
