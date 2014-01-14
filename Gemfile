@@ -39,6 +39,10 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'bcrypt-ruby', '~> 3.0.0'
 
+gem 'therubyracer'
+gem 'less-rails'
+gem 'twitter-bootstrap-rails'
+
 group :test do
   gem 'factory_girl_rails'
   gem 'capybara'

@@ -11,15 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131203050431) do
+ActiveRecord::Schema.define(version: 20140114115334) do
 
   create_table "goals", force: true do |t|
     t.string   "name"
     t.integer  "value"
     t.string   "unit"
-    t.integer  "person_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "achieved"
   end
 
   create_table "move_muscles", force: true do |t|

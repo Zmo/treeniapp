@@ -7,20 +7,34 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="navi">
-    <%= link_to 'users', users_path %>
-    <%= link_to 'workouts', workouts_path %>
-    <%= link_to 'moves', moves_path %> | 
-    <% if not session[:user_id].nil? %>
-      <%= link_to 'my workouts', user_workouts_path %>
-      <%= link_to 'my goals', goals_path %>
-      <%= link_to current_user.name, user_path(current_user.id) %>
-      <%= link_to 'signout', signout_path, method: :delete %>
-    <% else %>
-      <%= link_to 'signin', signin_path %>
-      <%= link_to 'signup', new_user_path %>
-    <% end %>
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <a class="brand" href="#">Treeniapp</a>
+      <div class="nav-collapse">
+        <ul class="nav">
+          <li><%= link_to 'users', users_path %></li>
+          <li><%= link_to 'workouts', workouts_path %></li>
+          <li><%= link_to 'moves', moves_path %></li>
+          <% if not session[:user_id].nil? %>
+            <li><%= link_to 'my workouts', user_workouts_path %></li>
+            <li><%= link_to 'my goals', goals_path %></li>
+            <li><%= link_to current_user.name, user_path(current_user.id) %></li>
+            <li><%= link_to 'signout', signout_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to 'signin', signin_path %></li>
+            <li><%= link_to 'signup', new_user_path %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
   </div>
+</div>
 
 <%= yield %>
 

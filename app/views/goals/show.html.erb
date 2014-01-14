@@ -1,9 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @goal.name %>
-</p>
+<h2><%= @goal.name %></h2>
 
 <p>
   <strong>Value:</strong>
@@ -16,9 +13,19 @@
 </p>
 
 <p>
-  <strong>Person:</strong>
-  <%= @goal.person_id %>
+  <strong>Goal set:</strong>
+  <%= @goal.created_at %>
 </p>
 
+<p>
+  <strong>Achieved:</strong>
+  <% if not @goal.achieved %>
+    <%= '-' %>
+  <% else %>
+    <%= @goal.updated_at %>
+  <% end %>
+</p>
+
+<%= link_to 'Delete goal', @goal, method: :delete %> |
 <%= link_to 'Edit', edit_goal_path(@goal) %> |
 <%= link_to 'Back', goals_path %>
