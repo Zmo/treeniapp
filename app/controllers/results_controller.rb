@@ -15,6 +15,7 @@ class ResultsController < ApplicationController
   # GET /results/new
   def new
     @result = Result.new
+    @moves = Move.all
   end
 
   # GET /results/1/edit
@@ -69,6 +70,6 @@ class ResultsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def result_params
-      params.require(:result).permit(:workout_id, :move_id, :user_id, :amount, :unit)
+      params.require(:result).permit(:user_id, :move_id, :repetitions, :weight)
     end
 end

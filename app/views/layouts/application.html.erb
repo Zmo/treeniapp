@@ -23,6 +23,7 @@
           <li><%= link_to 'moves', moves_path %></li>
           <% if not session[:user_id].nil? %>
             <li><%= link_to 'my workouts', user_workouts_path %></li>
+            <li><%= link_to 'my results', results_path %></li>
             <li><%= link_to 'my goals', goals_path %></li>
             <li><%= link_to current_user.name, user_path(current_user.id) %></li>
             <li><%= link_to 'signout', signout_path, method: :delete %></li>

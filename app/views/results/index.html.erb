@@ -3,28 +3,18 @@
 <table>
   <thead>
     <tr>
-      <th>Workout</th>
       <th>Move</th>
-      <th>User</th>
-      <th>Amount</th>
-      <th>Unit</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Repetitions</th>
+      <th>Weight</th>
     </tr>
   </thead>
 
   <tbody>
     <% @results.each do |result| %>
       <tr>
-        <td><%= result.workout_id %></td>
-        <td><%= result.move_id %></td>
-        <td><%= result.user_id %></td>
-        <td><%= result.amount %></td>
-        <td><%= result.unit %></td>
-        <td><%= link_to 'Show', result %></td>
-        <td><%= link_to 'Edit', edit_result_path(result) %></td>
-        <td><%= link_to 'Destroy', result, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to result.move.name, result %></td>
+        <td><%= result.repetitions %></td>
+        <td><%= result.weight %></td>
       </tr>
     <% end %>
   </tbody>
